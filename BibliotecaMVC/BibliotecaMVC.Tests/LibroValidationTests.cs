@@ -1,5 +1,4 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using BibliotecaMVC.Models;
 
 namespace BibliotecaMVC.Tests;
@@ -52,6 +51,28 @@ public class LibroValidationTests
         Assert.DoesNotContain(errores, error => error.MemberNames.Contains(nameof(Libro.Titulo)));
     }
 
+    [Theory]
+    // Cada [InlineData] es un caso de prueba distinto que comparte el mismo método.
+    [InlineData(1, false)]     // 1 carácter    -> válido (sin error)
+    [InlineData(150, false)]   // límite exacto -> válido
+    [InlineData(151, true)]    // excede límite -> error
+    // Comprueba el límite de longitud del título con varios casos a la vez.
+    public void ValidacionLongitudTitulo(int longitud, bool debeTenerError)
+    {
+        // Crea un título con la longitud indicada.
+        var libro = CrearLibro();
+        libro.Titulo = new string('A', longitud);
+
+        // Ejecuta las validaciones del modelo.
+        var errores = Validate(libro);
+
+        // Determina si hubo un error en la propiedad Titulo.
+        bool tieneError = errores.Any(error => error.MemberNames.Contains(nameof(Libro.Titulo)));
+
+        // Comprueba que el resultado coincida con lo esperado para cada caso.
+        Assert.Equal(debeTenerError, tieneError);
+    }
+
     [Fact]
     // Comprueba que el autor sea obligatorio.
     public void AutorEsObligatorio()
@@ -97,13 +118,17 @@ public class LibroValidationTests
         Assert.Contains(errores, error => error.MemberNames.Contains(nameof(Libro.Categoria)));
     }
 
-    [Fact]
-    // Comprueba que el precio sea mayor que cero.
-    public void PrecioDebeSerMayorQueCero()
+    [Theory]
+    // Varios precios inválidos (menores o iguales a cero) en una sola prueba.
+    [InlineData(0)]     // precio cero     -> inválido
+    [InlineData(-1)]    // precio negativo -> inválido
+    [InlineData(-10)]   // precio negativo -> inválido
+    // Comprueba que un precio menor o igual a cero NO sea válido.
+    public void PrecioMenorOIgualACero_NoEsValido(int precio)
     {
-        // Crea un libro con precio igual a cero.
+        // Crea un libro válido y le asigna el precio bajo prueba.
         var libro = CrearLibro();
-        libro.Precio = 0;
+        libro.Precio = precio;
 
         // Ejecuta las validaciones del modelo.
         var errores = Validate(libro);
@@ -112,28 +137,17 @@ public class LibroValidationTests
         Assert.Contains(errores, error => error.MemberNames.Contains(nameof(Libro.Precio)));
     }
 
-    [Fact]
-    // Comprueba que el precio negativo no sea válido.
-    public void PrecioNegativoNoEsValido()
+    [Theory]
+    // Varios precios válidos (mayores que cero) en una sola prueba.
+    [InlineData(1)]     // precio mínimo válido
+    [InlineData(15)]
+    [InlineData(500)]
+    // Comprueba que un precio mayor que cero SÍ sea válido.
+    public void PrecioMayorQueCero_EsValido(int precio)
     {
-        // Crea un libro con precio negativo.
+        // Crea un libro válido y le asigna el precio bajo prueba.
         var libro = CrearLibro();
-        libro.Precio = -10;
-
-        // Ejecuta las validaciones del modelo.
-        var errores = Validate(libro);
-
-        // Comprueba que exista un error asociado al precio.
-        Assert.Contains(errores, error => error.MemberNames.Contains(nameof(Libro.Precio)));
-    }
-
-    [Fact]
-    // Comprueba que un precio positivo sea válido.
-    public void PrecioPositivoEsValido()
-    {
-        // Crea un libro con precio positivo.
-        var libro = CrearLibro();
-        libro.Precio = 25;
+        libro.Precio = precio;
 
         // Ejecuta las validaciones del modelo.
         var errores = Validate(libro);
@@ -141,7 +155,6 @@ public class LibroValidationTests
         // Comprueba que no haya errores asociados al precio.
         Assert.DoesNotContain(errores, error => error.MemberNames.Contains(nameof(Libro.Precio)));
     }
-
 
     [Fact]
     // Comprueba que el libro acepte títulos y autores con tildes.
@@ -191,5 +204,3 @@ public class LibroValidationTests
         };
     }
 }
-
-    
