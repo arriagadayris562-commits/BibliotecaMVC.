@@ -1,0 +1,111 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!--  bienvenida -->
+<div class="alert alert-info alert-dismissible fade show mt-3" role="alert">
+    <strong>¡Bienvenido!</strong> Explora nuestras secciones de libros, autores, categorías y servicios.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<!-- Sección agregar al inicio -->
+<div class="container mt-4 mb-5">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h1 class="display-5">BibliotecaMVC</h1>
+            <p class="lead">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut laboreLorem ipsum dolor sit amet, consectetur adipiscing elit, sed d
+                o eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <a asp-controller="Home" asp-action="About" class="btn btn-primary">Conocer más</a>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="https://picsum.photos/500/350" class="img-fluid rounded shadow" alt="Biblioteca" />
+        </div>
+    </div>
+</div>
+
+
+
+        <div class="container mt-5">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <h2 class="text-primary">500+</h2>
+                    <p>Libros disponibles</p>
+                </div>
+                <div class="col-md-4">
+                    <h2 class="text-primary">120+</h2>
+                    <p>Autores Registrados</p>
+                </div>
+                <div class="col-md-4">
+                    <h2 class="text-primary">25+</h2>
+                    <p>Categorias literarias</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container mt-5">
+            <div class="bg-primary text-white rounded p-5 text-center">
+                <h2>Explora nuestra Biblioteca Virtual</h2>
+                <p>
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+                    veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+                    voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+                    magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+                    qui dolorem ipsum quia dolor sit amet, consectetur,
+                </p>
+                <a asp-controller="Home" asp-action="AcercaDe" class="btn btn-outline-light">Acerca de la Biblioteca</a>
+            </div>
+        </div>
+
+
+
+<!-- Título principal anterior -->
+<div class="text-center my-4">
+    <h1 class="display-5">Sistema de Gestión de Biblioteca</h1>
+    <p class="lead">Bienvenido al sistema desarrollado con ASP.Net Core MVC.</p>
+</div>
+
+<!-- flexbox alinear y ordenar las tarjetas de las secciones -->
+<div class="d-flex flex-wrap justify-content-center align-items-stretch gap-4 mt-4">
+
+    <!-- Tarjeta de Libros -->
+    <div class="col-md-3 mb-3" style="min-width: 250px;">
+        <div class="p-3 border bg-light h-100">
+            <h3>Libros</h3>
+            <p>Consulta el catálogo de libros disponibles.</p>
+            <a class="btn btn-primary btn-sm" asp-controller="Libros" asp-action="Index">Ir a Libros</a>
+        </div>
+    </div>
+
+    <!-- Tarjeta de Autores -->
+    <div class="col-md-3 mb-3" style="min-width: 250px;">
+        <div class="p-3 border bg-light h-100">
+            <h3>Autores</h3>
+            <p>Revisa la lista de autores registrados.</p>
+            <a class="btn btn-success btn-sm" asp-controller="Autores" asp-action="Index">Ir a Autores</a>
+        </div>
+    </div>
+
+    <!-- Tarjeta de Categorías -->
+    <div class="col-md-3 mb-3" style="min-width: 250px;">
+        <div class="p-3 border bg-light h-100">
+            <h3>Categorías</h3>
+            <p>Filtra por géneros y temáticas literarias.</p>
+            <a class="btn btn-info btn-sm text-white" asp-controller="Home" asp-action="Categorias">Ver Categorías</a>
+        </div>
+    </div>
+
+    <!-- Tarjeta de Servicios -->
+    <div class="col-md-3 mb-3" style="min-width: 250px;">
+        <div class="p-3 border bg-light h-100">
+            <h3>Servicios</h3>
+            <p>Gestiona los préstamos y consultas.</p>
+            <a class="btn btn-warning btn-sm" asp-controller="Home" asp-action="Prestamos">Ver Servicios</a>
+        </div>
+    </div>
+</div>
+

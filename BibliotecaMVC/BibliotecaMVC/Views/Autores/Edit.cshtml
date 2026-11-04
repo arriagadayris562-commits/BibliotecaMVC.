@@ -1,0 +1,36 @@
+﻿@model BibliotecaMVC.Models.Autor
+
+@{
+    ViewData["Title"] = "Editar Autor";
+}
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h2 class="card-title">@ViewData["Title"]</h2>
+
+        <form asp-action="Edit" method="post" class="swal-save-form">
+            <input asp-for="ID" type="hidden" />
+
+            <div class="mb-3">
+                <label asp-for="Nombre" class="form-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="test-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Nacionalidad" class="form-label"></label>
+                <input asp-for="Nacionalidad" class="form-control" />
+                <span asp-validation-for="Nacionalidad" class="test-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="FechaNacimiento" class="form-label"></label>
+                <input asp-for="FechaNacimiento" type="date" class="form-control" />
+                <span asp-validation-for="FechaNacimiento" class="test-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success">Guardar cambios</button>
+            <a asp-action="Index" class="btn btn-outline-secondary ">Cancelar</a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,533 @@
+html {? 
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+
+
+/*=========================
+        VARIABLES
+=========================*/
+:root {
+    --color-principal: #0d6efd;
+    --color-secundario: #f4f6f9;
+    --color-texto: #333333;
+    --color-blanco: #FFFFFF;
+}
+
+.about-header {
+    background: var(--color-principal);
+    color: var(--color-blanco);
+    text-align: center;
+    padding: 40px;
+}
+
+.about-container {
+    display: flex;
+    gap: 25px;
+    padding: 40px;
+}
+
+.about-content {
+    flex: 3;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,.1);
+    transition: 0.3s;
+}
+
+    .about-content:hover {
+        transform: translateY(-5px);
+    }
+
+.about-info {
+    flex: 1;
+    background: #eef5ff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.team-section {
+    padding: 20px 40px;
+}
+
+    .team-section img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .team-section figcaption {
+        text-align: center;
+        margin-top: 10px;
+        color: gray;
+        font-style: italic;
+    }
+
+@media(max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+    }
+}
+
+/*=========================================
+    Semana 5
+ ==========================================*/
+
+.section {
+    border: 1px solid red;
+    padding: 10px;
+    margin: 20px;
+}
+
+.contenedor {
+    border: 1px solid blue;
+    padding: 5px;
+}
+
+.card-demo {
+    border: 1px solid black;
+}
+
+
+/*media queries*/
+.media-query{
+    display: flex;
+    gap: 20px;
+
+}
+
+.media-query .card-demo{
+    flex: 1;
+
+}
+
+@media (max-width: 768px){
+    .media-query{
+        flex-direction: table-column;
+
+    }
+}
+
+/*CSS GRID*/
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 768px) {
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*FLEXBOX*/
+.flex-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-evenly;
+    align-items: center; 
+
+}
+
+
+@media (max-width: 768px) {
+    .flex-layout {
+        flex-direction: column;
+    }
+}
+
+/* de libros destacados */
+.cuadricula-libros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+/*CSS GRID*/
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+/* =========================================
+   FLEXBOX - ACTIVIDAD 1
+   ========================================= */
+
+.flex-secciones {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+    width: 90%;
+    margin: 30px auto;
+}
+
+
+/* =========================================
+   TARJETAS DE FLEXBOX
+   ========================================= */
+
+.tarjeta-seccion {
+    flex: 1;
+    padding: 25px;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+    /* =========================================
+   TÍTULOS DE LAS TARJETAS
+   ========================================= */
+
+    .tarjeta-seccion h3 {
+        margin: 0 0 12px 0;
+        font-size: 22px;
+        font-weight: 600;
+        color: #263238;
+    }
+
+
+    /* =========================================
+   TEXTO DE LAS TARJETAS
+   ========================================= */
+
+    .tarjeta-seccion p {
+        margin: 0 0 20px 0;
+        color: #6c757d;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+
+    /* =========================================
+   BOTONES
+   ========================================= */
+
+    .tarjeta-seccion .btn {
+        align-self: flex-start;
+        border: none;
+        border-radius: 6px;
+        padding: 9px 16px;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+
+/* =========================================
+   TÍTULO PRINCIPAL
+   ========================================= */
+
+.titulo-biblioteca {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 35px;
+}
+
+    .titulo-biblioteca h1 {
+        margin-bottom: 10px;
+        font-size: 36px;
+        font-weight: 700;
+        color: #263238;
+    }
+
+    .titulo-biblioteca p {
+        margin: 0;
+        color: #6c757d;
+        font-size: 16px;
+    }
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .media-query {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+        .media-query .card-demo {
+            flex: 1 1 40%;
+        }
+
+    .grid-layout {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cuadricula-libros {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .flex-layout {
+        flex-wrap: wrap;
+    }
+
+    .flex-secciones {
+        gap: 20px;
+    }
+
+    .tarjeta-seccion {
+        flex: 1 1 40%;
+    }
+
+    .titulo-biblioteca h1 {
+        font-size: 32px;
+    }
+}
+
+
+/* =========================================
+   CELULAR
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .section {
+        margin: 10px;
+        padding: 8px;
+    }
+
+    .contenedor {
+        padding: 5px;
+    }
+
+
+    /* MEDIA QUERY */
+
+    .media-query {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+        .media-query .card-demo {
+            flex: 1;
+        }
+
+
+    /* GRID */
+
+    .grid-layout {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+
+    /* LIBROS */
+
+    .cuadricula-libros {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+
+    /* FLEXBOX */
+
+    .flex-layout {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+
+    /* ACTIVIDAD 1 */
+
+    .flex-secciones {
+        flex-direction: column;
+        gap: 15px;
+        width: 90%;
+        margin: 20px auto;
+    }
+
+
+    /* TARJETAS */
+
+    .tarjeta-seccion {
+        flex: 1;
+        width: 100%;
+        padding: 18px;
+    }
+
+
+        /* TÍTULOS */
+
+        .tarjeta-seccion h3 {
+            font-size: 19px;
+        }
+
+
+        /* TEXTO */
+
+        .tarjeta-seccion p {
+            font-size: 13px;
+        }
+
+
+        /* BOTONES */
+
+        .tarjeta-seccion .btn {
+            padding: 8px 14px;
+            font-size: 12px;
+        }
+
+
+    /* TÍTULO PRINCIPAL */
+
+    .titulo-biblioteca {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+        .titulo-biblioteca h1 {
+            font-size: 26px;
+        }
+
+        .titulo-biblioteca p {
+            font-size: 14px;
+        }
+}
+
+
+.login-page {
+    width: 100%;
+    min-height: calc(100vh - 180px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: var(--color-secundario);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 460px;
+    background-color: var(--color-blanco);
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+    .login-header h1 {
+        margin-bottom: 8px;
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--color-texto);
+    }
+
+    .login-header p {
+        margin: 0;
+        color: #6c757d;
+        font-size: 15px;
+    }
+
+.login-card .form-label {
+    font-weight: 600;
+    color: var(--color-texto);
+}
+
+.login-card .form-control {
+    padding: 10px 12px;
+    border-radius: 7px;
+}
+
+    .login-card .form-control:focus {
+        border-color: var(--color-principal);
+    }
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-weight: 600;
+    border-radius: 7px;
+}
+
+.login-validation {
+    margin-bottom: 15px;
+}
+
+.login-register {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--color-texto);
+}
+
+    .login-register a {
+        color: var(--color-principal);
+        font-weight: 600;
+        text-decoration: none;
+        margin-left: 4px;
+    }
+
+        .login-register a:hover {
+            text-decoration: underline;
+        }
+
+@media (max-width: 600px) {
+
+    .login-page {
+        min-height: calc(100vh - 140px);
+        padding: 25px 15px;
+    }
+
+    .login-card {
+        padding: 25px 20px;
+        border-radius: 10px;
+    }
+
+    .login-header h1 {
+        font-size: 26px;
+    }
+
+    .login-header p {
+        font-size: 14px;
+    }
+
+    .login-card .form-control {
+        padding: 9px 10px;
+    }
+
+    .login-button {
+        padding: 10px;
+    }
+}
